@@ -14,16 +14,19 @@ public class KermieController
 	{
 		showKermieLevelThree();
 		kermies = new Kermie [5];
+		
+		for(int index = 0; index < kermies.length; index++)
+		{
+			kermies[index] = new Kermie("Kermie #" + index);
+		}
+		
 		appFrame = new KermieFrame(this);
 		
 	}
 	
 	public void start()
 	{
-		for(int index = 0; index < kermies.length; index++)
-		{
-			kermies[index] = new Kermie("Kermie #" + index);
-		}
+		
 		
 		kermies[0].setName("asdasd");
 		
@@ -33,6 +36,14 @@ public class KermieController
 				
 		}
 			
+	}
+	
+	public void impactKermies()
+	{
+		for(Kermie currentKermie : kermies)
+		{
+			currentKermie.calculateKermieRank(10, -5);
+		}
 	}
 
 	private void showKermieLevelThree()
